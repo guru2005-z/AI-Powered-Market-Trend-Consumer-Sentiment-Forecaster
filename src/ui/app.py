@@ -241,9 +241,10 @@ def send_email_to_boss(to_email, subject, content):
     if not user_email or not app_password:
         return False, "❌ Missing GMAIL credentials in Secrets or .env."
 
+    clean_password = str(app_password).replace(" ", "").strip()
     formatted_html = format_markdown_to_html(content)
     try:
-        yag = yagmail.SMTP(user=user_email, password=app_password)
+        yag = yagmail.SMTP(user=user_email, password=clean_password)
         yag.send(to=to_email, subject=subject, contents=[formatted_html])
         return True, "✅ Report sent successfully!"
     except Exception as e:
