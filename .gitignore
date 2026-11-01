@@ -1,0 +1,21 @@
+# Python virtual environments
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Secrets and environment variables (CRITICAL: Never commit credentials)
+.env
+.streamlit/secrets.toml
+*.env.local
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs & temp databases
+*.log
+*.sqlite3
